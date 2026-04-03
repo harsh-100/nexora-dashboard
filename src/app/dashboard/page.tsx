@@ -1,33 +1,95 @@
 "use client";
 
+import CardGrid from "@/components/dashboard/CardGrid";
+import ItemsTable from "@/components/dashboard/ItemsTable";
+import ItemForm from "@/components/dashboard/ItemForm";
+import { useDashboard } from "@/lib/dashboard-context";
+import { projectItems } from "@/data/items";
+
 export default function DashboardPage() {
-  return (
-    <div className="flex-1 flex items-center justify-center p-8">
-      <div className="text-center animate-fade-in">
-        <div className="w-16 h-16 rounded-2xl bg-accent-muted flex items-center justify-center mx-auto mb-4">
-          <span className="text-3xl">🚀</span>
+  const {
+    activeTab,
+    selectedItem,
+    setSelectedItem,
+    itemsView,
+    setItemsView,
+  } = useDashboard();
+
+  // ── ITEMS VIEW ──
+  if (activeTab === "items") {
+    // Detail form
+    if (itemsView === "detail" && selectedItem) {
+      return (
+        <ItemForm
+          item={selectedItem}
+          onBack={() => {
+            setItemsView("list");
+            setSelectedItem(null);
+          }}
+        />
+      );
+    }
+
+    // Items list
+    return (
+      <div className="animate-fade-in">
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h2 className="text-[17px] font-semibold text-[#F0F0F5] tracking-[-0.01em]">
+              Project Items
+            </h2>
+            <p className="text-[12px] text-[#4A4A5E] mt-1">
+              All items across engineering phases
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] text-[#3A3A4E] font-medium uppercase tracking-wider">
+              Total
+            </span>
+            <span className="text-[12px] text-[#6B6B85] font-semibold bg-[#1A1A25] px-2.5 py-1 rounded-[8px] border border-[#222230]">
+              {projectItems.length}
+            </span>
+          </div>
         </div>
-        <h2 className="text-2xl font-bold text-text-primary tracking-tight mb-2">
-          Nexora Dashboard
-        </h2>
-        <p className="text-text-secondary text-sm max-w-md">
-          Layout shell is ready. Sidebar collapses, Topbar actions work.
-          <br />
-          Next up: Navigation Tabs, Mode Tabs, and Overview Cards.
-        </p>
-        <div className="mt-8 grid grid-cols-3 gap-3 max-w-sm mx-auto">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <div
-              key={i}
-              className="h-20 rounded-xl bg-bg-secondary border border-border-default hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 cursor-pointer"
-              style={{ animationDelay: `${i * 60}ms` }}
-            />
-          ))}
-        </div>
-        <p className="text-text-muted text-xs mt-6">
-          Phase 2 Complete — Cards placeholder above
-        </p>
+
+        {/* Items Table */}
+        <ItemsTable
+          items={projectItems}
+          onItemClick={(item) => {
+            setSelectedItem(item);
+            setItemsView("detail");
+          }}
+        />
       </div>
+    );
+  }
+
+  // ── OVERVIEW VIEW (default) ──
+  return (
+    <div className="animate-fade-in">
+      {/* Section Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-[17px] font-semibold text-[#F0F0F5] tracking-[-0.01em]">
+            Project Overview
+          </h2>
+          <p className="text-[12px] text-[#4A4A5E] mt-1">
+            Engineering process lifecycle — 9 steps
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[11px] text-[#3A3A4E] font-medium uppercase tracking-wider">
+            Steps
+          </span>
+          <span className="text-[12px] text-[#6B6B85] font-semibold bg-[#1A1A25] px-2.5 py-1 rounded-[8px] border border-[#222230]">
+            9
+          </span>
+        </div>
+      </div>
+
+      {/* Cards Grid */}
+      <CardGrid />
     </div>
   );
 }
