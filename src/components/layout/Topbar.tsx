@@ -33,7 +33,6 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close menu on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -45,34 +44,37 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
   }, []);
 
   return (
-    <header className="flex items-center justify-between h-16 px-6 border-b border-border-default bg-bg-secondary/50 backdrop-blur-sm shrink-0">
+    <header className="flex items-center justify-between h-[60px] px-6 border-b border-[#1F1F2E] bg-[#12121A]/80 backdrop-blur-sm shrink-0">
       {/* Left — Project Info */}
       <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <h1 className="text-lg font-semibold text-text-primary">TestAPr1</h1>
-          <ChevronDown className="w-4 h-4 text-text-tertiary" />
+        <div className="flex items-center gap-2 cursor-pointer group">
+          <h1 className="text-[15px] font-semibold text-[#F0F0F5] group-hover:text-white transition-colors">
+            TestAPr1
+          </h1>
+          <ChevronDown className="w-3.5 h-3.5 text-[#5A5A73]" />
         </div>
-        <span className="text-xs text-text-tertiary hidden md:inline-block">
+        <div className="hidden md:block w-px h-5 bg-[#252535] mx-1" />
+        <span className="text-[12px] text-[#5A5A73] hidden md:inline-block">
           Product Type (System): Battery Management System
         </span>
       </div>
 
       {/* Center — Settings */}
-      <button className="p-2 rounded-lg text-text-tertiary hover:text-text-secondary hover:bg-bg-hover transition-all duration-200">
-        <Settings2 className="w-5 h-5" />
+      <button className="p-2.5 rounded-xl text-[#5A5A73] hover:text-[#8A8AA3] hover:bg-[#1A1A25] transition-all duration-200">
+        <Settings2 className="w-[18px] h-[18px]" />
       </button>
 
       {/* Right — Actions */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2.5">
         {/* + Create Button (Primary CTA) */}
         <button
           onClick={onCreateClick}
           className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium",
-            "bg-accent text-white",
-            "hover:bg-accent-hover active:scale-[0.97]",
+            "flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-[13px] font-semibold",
+            "bg-[#3B82F6] text-white",
+            "hover:bg-[#2563EB] active:scale-[0.97]",
             "transition-all duration-200",
-            "shadow-sm hover:shadow-md hover:shadow-accent/20"
+            "shadow-[0_2px_12px_rgba(59,130,246,0.25)]"
           )}
         >
           <Plus className="w-4 h-4" />
@@ -84,11 +86,11 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className={cn(
-              "flex items-center gap-2 px-3 py-2 rounded-lg text-sm",
-              "border border-border-default text-text-secondary",
-              "hover:text-text-primary hover:border-border-strong hover:bg-bg-hover",
+              "flex items-center gap-2 px-4 py-2.5 rounded-[12px] text-[13px] font-medium",
+              "border border-[#252535] text-[#8A8AA3]",
+              "hover:text-[#F0F0F5] hover:border-[#3A3A4A] hover:bg-[#1A1A25]",
               "transition-all duration-200",
-              menuOpen && "bg-bg-hover border-border-strong text-text-primary"
+              menuOpen && "bg-[#1A1A25] border-[#3A3A4A] text-[#F0F0F5]"
             )}
           >
             <MoreHorizontal className="w-4 h-4" />
@@ -99,9 +101,9 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
           {menuOpen && (
             <div
               className={cn(
-                "absolute right-0 top-full mt-2 w-52 z-50",
-                "bg-bg-elevated border border-border-default rounded-xl",
-                "shadow-lg py-1.5",
+                "absolute right-0 top-full mt-2.5 w-56 z-50",
+                "bg-[#16161F] border border-[#2A2A3C] rounded-[16px]",
+                "shadow-[0_16px_48px_rgba(0,0,0,0.5)] py-2",
                 "animate-fade-in-scale"
               )}
             >
@@ -112,19 +114,19 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
                     <button
                       onClick={() => setMenuOpen(false)}
                       className={cn(
-                        "w-full flex items-center gap-3 px-3.5 py-2 text-sm",
+                        "w-full flex items-center gap-3 px-4 py-2.5 text-[13px]",
                         "transition-colors duration-150",
                         action.id === "delete"
-                          ? "text-status-failed hover:bg-status-failed/10"
-                          : "text-text-secondary hover:text-text-primary hover:bg-bg-hover"
+                          ? "text-[#EF4444] hover:bg-[#EF4444]/8"
+                          : "text-[#9999B0] hover:text-[#F0F0F5] hover:bg-[#1C1C28]"
                       )}
                     >
-                      <Icon className="w-4 h-4 shrink-0" />
+                      <Icon className="w-4 h-4 shrink-0 opacity-70" />
                       <span>{action.label}</span>
                     </button>
                     {action.dividerAfter &&
                       index < menuActions.length - 1 && (
-                        <div className="my-1.5 mx-3.5 h-px bg-border-subtle" />
+                        <div className="my-1.5 mx-4 h-px bg-[#222230]" />
                       )}
                   </div>
                 );
