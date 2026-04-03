@@ -1,17 +1,18 @@
 "use client";
 
-import { useState } from "react";
 import {
-  LayoutDashboard,
   Building2,
-  Settings,
-  UserCog,
   ChevronLeft,
   ChevronRight,
+  LayoutDashboard,
   LogOut,
+  Settings,
+  UserCog,
 } from "lucide-react";
-import { sidebarNavItems, legalLinks, userInfo } from "@/data/sidebar-nav";
+import { legalLinks, sidebarNavItems, userInfo } from "@/data/sidebar-nav";
+
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 const iconMap: Record<string, React.ElementType> = {
   "layout-dashboard": LayoutDashboard,

@@ -112,11 +112,11 @@
 /* ========================================
    Base Styles
    ======================================== */
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 html {
   height: 100%;
@@ -240,7 +240,7 @@ body {
   100% { background-position: 200% 0; }
 }
 
-.animate-fade-in {
+/* .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
 }
 
@@ -254,4 +254,4 @@ body {
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
-}
+} */
