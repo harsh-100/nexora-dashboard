@@ -23,13 +23,13 @@ export default function ChatPanel({ isOpen, onToggle }: ChatPanelProps) {
             "flex items-center gap-2 px-2.5 py-4",
             "bg-bg-overlay border border-border-strong border-r-0",
             "rounded-l-[14px]",
-            "text-text-subtle hover:text-accent hover:bg-bg-hover",
-            "transition-all duration-300 group"
+            "text-text-subtle ",
+            "transition-all duration-300 group bg-gradient-to-r from-accent to-accent-secondary text-white text-[13px] font-semibold hover:scale-105 active:scale-95 transition-all duration-250 animate-pulse-glow"
           )}
           style={{ boxShadow: "var(--shadow-chat)" }}
         >
           <div className="flex flex-col items-center gap-2">
-            <MessageSquare className="w-4 h-4 group-hover:text-accent transition-colors" />
+            <MessageSquare className="w-4 h-4  transition-colors" />
             <span
               className="text-[11px] font-medium tracking-wider"
               style={{ writingMode: "vertical-lr" }}
