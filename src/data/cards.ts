@@ -103,4 +103,31 @@ export const processCards: ProcessCard[] = [
     description:
       "Release management, deployment pipelines, and delivery coordination.",
   },
+
+  // Configuration management
+  {
+    id: 9,
+    title: "Configuration Management",
+    group: "Support",
+    icon: "settings",
+    status: "empty",
+    items: 0,
+    description:
+      "Version control, configuration tracking, and baseline management.",
+  },
+
+
+  // Compliance and audit
+
+  {
+    id: 10,
+    title: "Compliance and Audit",
+    group: "Support",
+    icon: "settings",
+    status: "empty",
+    items: 0,
+    description:
+      "Version control, configuration tracking, and baseline management.",
+    subLabel: "Done at 12:00 PM",
+  }
 ];

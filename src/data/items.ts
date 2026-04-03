@@ -91,4 +91,6 @@ export const projectItems: ProjectItem[] = [
       "Hardware-in-the-Loop test environment configuration for BMS validation. Includes dSPACE setup, battery emulator configuration, fault injection framework, and test automation scripts.",
     category: "Testing",
   },
+
+
 ];

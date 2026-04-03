@@ -48,7 +48,7 @@ export default function Topbar({ onCreateClick }: TopbarProps) {
   }, []);
 
   return (
-    <header className="flex items-center justify-between h-[60px] px-6 border-b border-border-default bg-bg-surface/80 backdrop-blur-sm shrink-0">
+    <header className="relative z-20 flex items-center justify-between h-[60px] px-6 border-b border-border-default bg-bg-surface/80 backdrop-blur-sm shrink-0">
       {/* Left — Project Info */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-2 cursor-pointer group">
