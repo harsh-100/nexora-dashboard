@@ -32,7 +32,7 @@ export default function CardListView() {
         <span className="text-[11px] font-semibold text-text-ghost uppercase tracking-wider">Group</span>
         <span className="text-[11px] font-semibold text-text-ghost uppercase tracking-wider">Status</span>
         <span className="text-[11px] font-semibold text-text-ghost uppercase tracking-wider">Items</span>
-        <span className="text-[11px] font-semibold text-text-ghost uppercase tracking-wider sr-only">Info</span>
+        <span className="text-[11px] font-semibold text-text-ghost uppercase tracking-wider">Info</span>
       </div>
 
       {/* Rows */}

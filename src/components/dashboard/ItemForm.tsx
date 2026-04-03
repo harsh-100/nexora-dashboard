@@ -78,7 +78,7 @@ export default function ItemForm({ item, onBack }: ItemFormProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-between px-8 py-5 border-t border-border-subtle bg-bg-surface-2">
+        <div className="flex items-center justify-center gap-4 px-8 py-5 border-t border-border-subtle bg-bg-surface-2">
           <button
             onClick={onBack}
             className="flex items-center gap-2 px-5 py-2.5 rounded-[12px] text-[13px] font-medium bg-bg-raised border border-border-default text-text-muted hover:text-text-primary hover:bg-bg-hover hover:border-border-strong transition-all duration-200"
