@@ -19,7 +19,7 @@ export default function NavigationTabs({
   onTabChange,
 }: NavigationTabsProps) {
   return (
-    <div className="flex items-center gap-1 px-6 border-b border-[#1A1A28]">
+    <div className="flex items-center gap-1 px-6 border-b border-border-subtle">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
@@ -29,15 +29,13 @@ export default function NavigationTabs({
             className={cn(
               "relative px-5 py-3.5 text-[13px] font-medium transition-all duration-200",
               isActive
-                ? "text-[#F0F0F5]"
-                : "text-[#5A5A73] hover:text-[#9999B0]"
+                ? "text-text-primary"
+                : "text-text-faint hover:text-text-tertiary"
             )}
           >
             {tab.label}
-
-            {/* Active underline indicator */}
             {isActive && (
-              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[2px] bg-[#3B82F6] rounded-full" />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[2px] bg-accent rounded-full" />
             )}
           </button>
         );

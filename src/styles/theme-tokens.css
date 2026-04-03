@@ -1,0 +1,155 @@
+/* ========================================
+   NEXORA THEME TOKENS
+   Central source of truth for all colors.
+   Add new themes by adding a new [data-theme] block.
+   ======================================== */
+
+/* ── DARK THEME ── */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-base: #0A0A0F;
+  --bg-surface: #0E0E16;
+  --bg-surface-2: #111119;
+  --bg-raised: #14141E;
+  --bg-overlay: #16161F;
+  --bg-hover: #1A1A25;
+  --bg-active: #22222F;
+
+  /* Borders */
+  --border-subtle: #1A1A28;
+  --border-default: #1F1F2E;
+  --border-mid: #252535;
+  --border-strong: #2A2A3C;
+  --border-vivid: #3A3A4A;
+
+  /* Text */
+  --text-primary: #F0F0F5;
+  --text-secondary: #C0C0D0;
+  --text-tertiary: #9999B0;
+  --text-muted: #8A8AA3;
+  --text-subtle: #6B6B85;
+  --text-faint: #5A5A73;
+  --text-ghost: #4A4A5E;
+  --text-invisible: #3A3A4E;
+  --text-ultra-faint: #2E2E42;
+
+  /* Accent */
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-secondary: #6366F1;
+  --accent-muted: rgba(59, 130, 246, 0.10);
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --accent-border: rgba(59, 130, 246, 0.25);
+
+  /* Status */
+  --status-active: #22C55E;
+  --status-active-bg: rgba(34, 197, 94, 0.10);
+  --status-active-glow: rgba(34, 197, 94, 0.50);
+  --status-pending: #F59E0B;
+  --status-pending-bg: rgba(245, 158, 11, 0.10);
+  --status-pending-glow: rgba(245, 158, 11, 0.50);
+  --status-failed: #EF4444;
+  --status-failed-bg: rgba(239, 68, 68, 0.10);
+  --status-failed-glow: rgba(239, 68, 68, 0.50);
+  --status-empty: #6B7280;
+  --status-empty-bg: rgba(107, 114, 128, 0.10);
+  --status-completed: #3B82F6;
+  --status-completed-bg: rgba(59, 130, 246, 0.10);
+  --status-draft: #6B7280;
+  --status-draft-bg: rgba(107, 114, 128, 0.10);
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(59, 130, 246, 0.08);
+  --shadow-popup: 0 24px 80px rgba(0, 0, 0, 0.6);
+  --shadow-dropdown: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-button: 0 2px 12px rgba(59, 130, 246, 0.25);
+  --shadow-toast: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-chat: -8px 0 30px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+
+  /* Backdrop */
+  --backdrop-color: rgba(0, 0, 0, 0.70);
+
+  /* Glass */
+  --glass-bg: rgba(18, 18, 26, 0.7);
+  --glass-bg-strong: rgba(18, 18, 26, 0.85);
+
+  /* Sub-label */
+  --sub-label-text: #F59E0B;
+  --sub-label-bg: rgba(245, 158, 11, 0.10);
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg-base: #F5F5F8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F0F0F4;
+  --bg-raised: #EAEAEF;
+  --bg-overlay: #FFFFFF;
+  --bg-hover: #E5E5EB;
+  --bg-active: #DDDDE5;
+
+  /* Borders */
+  --border-subtle: #E5E5EC;
+  --border-default: #D8D8E2;
+  --border-mid: #CCCCDA;
+  --border-strong: #C0C0D0;
+  --border-vivid: #B0B0C0;
+
+  /* Text */
+  --text-primary: #1A1A2E;
+  --text-secondary: #3A3A52;
+  --text-tertiary: #555570;
+  --text-muted: #6B6B85;
+  --text-subtle: #7A7A95;
+  --text-faint: #8A8AA3;
+  --text-ghost: #A0A0B5;
+  --text-invisible: #B5B5C8;
+  --text-ultra-faint: #CCCCDA;
+
+  /* Accent */
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-secondary: #4F46E5;
+  --accent-muted: rgba(37, 99, 235, 0.10);
+  --accent-glow: rgba(37, 99, 235, 0.20);
+  --accent-border: rgba(37, 99, 235, 0.30);
+
+  /* Status */
+  --status-active: #16A34A;
+  --status-active-bg: rgba(22, 163, 74, 0.10);
+  --status-active-glow: rgba(22, 163, 74, 0.40);
+  --status-pending: #D97706;
+  --status-pending-bg: rgba(217, 119, 6, 0.10);
+  --status-pending-glow: rgba(217, 119, 6, 0.40);
+  --status-failed: #DC2626;
+  --status-failed-bg: rgba(220, 38, 38, 0.10);
+  --status-failed-glow: rgba(220, 38, 38, 0.40);
+  --status-empty: #6B7280;
+  --status-empty-bg: rgba(107, 114, 128, 0.08);
+  --status-completed: #2563EB;
+  --status-completed-bg: rgba(37, 99, 235, 0.10);
+  --status-draft: #6B7280;
+  --status-draft-bg: rgba(107, 114, 128, 0.08);
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.06);
+  --shadow-popup: 0 24px 80px rgba(0, 0, 0, 0.12);
+  --shadow-dropdown: 0 16px 48px rgba(0, 0, 0, 0.10);
+  --shadow-button: 0 2px 12px rgba(37, 99, 235, 0.20);
+  --shadow-toast: 0 12px 40px rgba(0, 0, 0, 0.10);
+  --shadow-chat: -8px 0 30px rgba(0, 0, 0, 0.08);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.10);
+
+  /* Backdrop */
+  --backdrop-color: rgba(0, 0, 0, 0.30);
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-strong: rgba(255, 255, 255, 0.85);
+
+  /* Sub-label */
+  --sub-label-text: #B45309;
+  --sub-label-bg: rgba(180, 83, 9, 0.10);
+}

@@ -30,9 +30,10 @@ export default function ModeTabs({ activeMode, onModeClick }: ModeTabsProps) {
               "flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium",
               "transition-all duration-200 border",
               isActive
-                ? "bg-[#3B82F6]/10 text-[#3B82F6] border-[#3B82F6]/25 shadow-[0_0_12px_rgba(59,130,246,0.08)]"
-                : "bg-[#14141C] text-[#6B6B85] border-[#1F1F2E] hover:text-[#B0B0C5] hover:bg-[#1A1A25] hover:border-[#2A2A3C]"
+                ? "bg-accent-muted text-accent border-accent-border"
+                : "bg-bg-raised text-text-subtle border-border-default hover:text-text-secondary hover:bg-bg-hover hover:border-border-strong"
             )}
+            style={isActive ? { boxShadow: "0 0 12px var(--accent-glow)" } : undefined}
           >
             <Icon className="w-3.5 h-3.5" />
             <span>{mode.label}</span>

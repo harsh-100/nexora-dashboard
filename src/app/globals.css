@@ -1,205 +1,126 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "../styles/theme-tokens.css";
 @import "tailwindcss";
 
 /* ========================================
-   NEXORA DESIGN SYSTEM — Design Tokens
-   Theme: Dark Neutral + Blue Accent
-   Inspired by: Stripe, Linear, Notion
+   NEXORA DESIGN SYSTEM
+   All colors come from theme-tokens.css
+   via CSS custom properties (data-theme).
    ======================================== */
-
-:root {
-  /* Backgrounds */
-  --bg-primary: #0A0A0F;
-  --bg-secondary: #12121A;
-  --bg-tertiary: #1A1A25;
-  --bg-elevated: #1E1E2A;
-  --bg-hover: #22222F;
-
-  /* Borders */
-  --border-default: #2A2A3A;
-  --border-subtle: #1F1F2E;
-  --border-strong: #3A3A4A;
-
-  /* Text */
-  --text-primary: #F0F0F5;
-  --text-secondary: #8A8AA3;
-  --text-tertiary: #5A5A73;
-  --text-muted: #4A4A5A;
-
-  /* Accent (Blue) */
-  --accent: #3B82F6;
-  --accent-hover: #2563EB;
-  --accent-muted: rgba(59, 130, 246, 0.15);
-  --accent-glow: rgba(59, 130, 246, 0.25);
-
-  /* Status Colors */
-  --status-active: #22C55E;
-  --status-active-bg: rgba(34, 197, 94, 0.12);
-  --status-pending: #F59E0B;
-  --status-pending-bg: rgba(245, 158, 11, 0.12);
-  --status-failed: #EF4444;
-  --status-failed-bg: rgba(239, 68, 68, 0.12);
-  --status-empty: #6B7280;
-  --status-empty-bg: rgba(107, 114, 128, 0.12);
-
-  /* Spacing Scale */
-  --space-xs: 4px;
-  --space-sm: 8px;
-  --space-md: 12px;
-  --space-lg: 16px;
-  --space-xl: 24px;
-  --space-2xl: 32px;
-  --space-3xl: 48px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
-
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 200ms ease;
-  --transition-smooth: 300ms ease-in-out;
-
-  /* Layout */
-  --sidebar-width: 240px;
-  --sidebar-collapsed-width: 64px;
-  --topbar-height: 64px;
-  --chat-width: 400px;
-}
 
 /* ========================================
    Tailwind Theme Integration
+   Maps CSS custom properties to Tailwind
+   utility classes. Values come from
+   [data-theme] selectors at runtime.
    ======================================== */
 @theme inline {
-  --color-background: var(--bg-primary);
+  --color-background: var(--bg-base);
   --color-foreground: var(--text-primary);
   --font-sans: 'Inter', sans-serif;
 
-  /* Custom colors for Tailwind */
-  --color-bg-primary: var(--bg-primary);
-  --color-bg-secondary: var(--bg-secondary);
-  --color-bg-tertiary: var(--bg-tertiary);
-  --color-bg-elevated: var(--bg-elevated);
+  /* Backgrounds */
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-surface-2: var(--bg-surface-2);
+  --color-bg-raised: var(--bg-raised);
+  --color-bg-overlay: var(--bg-overlay);
   --color-bg-hover: var(--bg-hover);
+  --color-bg-active: var(--bg-active);
 
-  --color-border-default: var(--border-default);
+  /* Borders */
   --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-mid: var(--border-mid);
   --color-border-strong: var(--border-strong);
+  --color-border-vivid: var(--border-vivid);
 
+  /* Text */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-text-faint: var(--text-faint);
+  --color-text-ghost: var(--text-ghost);
+  --color-text-invisible: var(--text-invisible);
+  --color-text-ultra-faint: var(--text-ultra-faint);
 
+  /* Accent */
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-secondary: var(--accent-secondary);
   --color-accent-muted: var(--accent-muted);
 
+  /* Status */
   --color-status-active: var(--status-active);
+  --color-status-active-bg: var(--status-active-bg);
   --color-status-pending: var(--status-pending);
+  --color-status-pending-bg: var(--status-pending-bg);
   --color-status-failed: var(--status-failed);
+  --color-status-failed-bg: var(--status-failed-bg);
   --color-status-empty: var(--status-empty);
+  --color-status-empty-bg: var(--status-empty-bg);
+  --color-status-completed: var(--status-completed);
+  --color-status-completed-bg: var(--status-completed-bg);
+  --color-status-draft: var(--status-draft);
+  --color-status-draft-bg: var(--status-draft-bg);
+
+  /* Sub-label */
+  --color-sub-label-text: var(--sub-label-text);
+  --color-sub-label-bg: var(--sub-label-bg);
 }
 
 /* ========================================
    Base Styles
    ======================================== */
-/* * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
 html {
   height: 100%;
   scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-base);
   color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ========================================
    Custom Scrollbar
    ======================================== */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-default);
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--border-strong);
-}
-
-/* Firefox */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-default) transparent;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-vivid); }
+* { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
 
 /* ========================================
-   Focus Styles
+   Focus & Selection
    ======================================== */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* ========================================
-   Selection Styles
-   ======================================== */
-::selection {
-  background-color: var(--accent-muted);
-  color: var(--text-primary);
-}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+::selection { background-color: var(--accent-muted); color: var(--text-primary); }
 
 /* ========================================
    Utility Classes
    ======================================== */
 .glass {
-  background: rgba(18, 18, 26, 0.7);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-subtle);
-}
-
-.glass-strong {
-  background: rgba(18, 18, 26, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-default);
 }
 
-.glow-accent {
-  box-shadow: var(--shadow-glow);
-}
-
-.transition-all-smooth {
-  transition: all var(--transition-smooth);
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-strong);
 }
 
 /* ========================================
@@ -220,38 +141,17 @@ body {
   to { transform: translateX(0); }
 }
 
-@keyframes slideInLeft {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(59, 130, 246, 0.2); }
-  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+  0%, 100% { box-shadow: 0 0 8px var(--accent-glow); }
+  50% { box-shadow: 0 0 20px var(--accent-glow); }
 }
 
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
-/* .animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-.animate-fade-in-scale {
-  animation: fadeInScale 0.2s ease-out forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 0.3s ease-out forwards;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-} */

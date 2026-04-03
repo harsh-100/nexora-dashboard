@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ThemeProvider } from "@/lib/theme-context";
 
 export const metadata: Metadata = {
   title: "Nexora — OSOS OMEGA Dashboard",
@@ -14,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-screen flex flex-col">{children}</body>
+    <html lang="en" className="h-full antialiased" data-theme="dark" suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
